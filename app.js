@@ -26,8 +26,7 @@ const builtinDocs = [
   {id:'b-accord',name:'Accord de collaboration pédagogique · 2026–2027',section:'admin',type:'application/pdf',url:'documents/accord-collaboration-pedagogique-2026-2027.pdf',subtitle:'Document à compléter et à faire signer · 2 pages'},
   {id:'b-attestation',name:'Attestation d’encadrement pédagogique',section:'admin',type:'application/pdf',url:'documents/attestation-encadrement-pedagogique.pdf',subtitle:'Demande d’allocation et signatures · 1 page'},
   {id:'b-rapport',name:'Rapport du maître de stage',section:'admin',type:'application/pdf',url:'documents/rapport-maitre-de-stage.pdf',subtitle:'Grille et rapport destinés au maître de stage · 6 pages'},
-  {id:'b-planning-a',name:'Horaire de M. Mottry · Semaine A',section:'planning',type:'application/pdf',url:'documents/horaire-mottry-semaine-A.pdf',subtitle:'Horaire original du maître de stage · Semaine A'},
-  {id:'b-planning-b',name:'Horaire de M. Mottry · Semaine B',section:'planning',type:'application/pdf',url:'documents/horaire-mottry-semaine-B.pdf',subtitle:'Horaire original du maître de stage · Semaine B'}
+  {id:'b-planning-nouveau',name:'Planning de stage — Semaines A et B (PDF)',section:'planning',type:'application/pdf',url:'documents/planning-stage-mottry-semaines-A-et-B.pdf',subtitle:'Planning de stage · semaines A et B · 2 pages'},
 ];
 const checklist = [
   {id:'g-cover',section:'summary',text:'Vérifier la page de garde (école, classe, dates, maître de stage)'},
