@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b2537" />
+  <meta name="description" content="Une vraie farde de stage numérique : intercalaires, journées, documents et intercalaires HEFF." />
+  <title>Ma farde de stage • HEFF</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <header class="topbar">
+      <a href="#" class="brand" id="brandLink" aria-label="Accueil de la farde">
+        <span class="brand-logo" aria-hidden="true">f<span>.</span></span>
+        <span class="brand-name">ma<span>farde</span><small>ÉDITION STAGE</small></span>
+      </a>
+      <div class="topbar-center"><span class="live-dot"></span> ESPACE DE TRAVAIL PERSONNEL <span class="topbar-divider"></span> HEFF · AIP3</div>
+      <div class="topbar-actions">
+        <button type="button" class="icon-button" id="searchBtn" aria-label="Rechercher dans la farde" title="Rechercher">⌕</button>
+        <button type="button" class="button button-outline top-add" id="addBtn"><span>＋</span> Ajouter un document</button>
+        <button type="button" class="icon-button" id="settingsBtn" aria-label="Personnaliser le stage" title="Personnaliser">⚙</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <div id="welcome" class="welcome">
+        <div class="welcome-copy">
+          <div class="eyebrow"><span class="eyebrow-rule"></span> TON ESPACE DE STAGE · 2026 / 2027</div>
+          <div class="welcome-title">Tout ton stage.<br><em>Dans une seule farde.</em></div>
+          <p>Une farde comme une vraie : une couverture à ouvrir, des intercalaires à parcourir et tes documents toujours à la bonne place.</p>
+          <div class="welcome-chips"><span>✳ 9 intercalaires interactifs</span><span>▤ Documents intégrés</span><span>↗ Sauvegarde locale</span></div>
+          <button type="button" class="button button-primary button-large" id="openFromWelcome">Ouvrir ma farde <span aria-hidden="true">↗</span></button>
+          <div class="welcome-hint">2 consignes, 3 documents administratifs et 2 horaires A/B déjà classés. Choisis le mode intercalaires ou le mode livre.</div>
+        </div>
+        <div class="cover-stage" id="coverStage">
+          <button type="button" class="closed-binder" id="coverButton" aria-label="Ouvrir ma farde de stage">
+            <div class="cover-spine"><span>FARDE DE STAGE</span><i></i><i></i></div>
+            <div class="cover-face">
+              <div class="cover-corner"></div>
+              <div class="cover-top"><span>HEFF <b>·</b> ÉDUCATION PHYSIQUE</span><span class="cover-monogram">L<span>·</span>D</span></div>
+              <div class="cover-body"><div class="cover-symbol">✳</div><div class="cover-overline">MON PARCOURS ENSEIGNANT</div><div class="cover-main">FARDE<br>DE <i>STAGE</i></div><div class="cover-rule"></div><div class="cover-year">AIP 3 <span>—</span> 2026 / 2027</div></div>
+              <div class="cover-bottom"><span id="coverName">LUCAS DEVERS</span><span class="cover-badge">03 <small>SEM.</small></span></div>
+              <span class="cover-grip" aria-hidden="true"></span>
+            </div>
+            <div class="fake-tab t1"></div><div class="fake-tab t2"></div><div class="fake-tab t3"></div><div class="fake-tab t4"></div>
+          </button>
+          <div class="cover-shadow"></div>
+          <div class="cover-caption"><span class="curve-arrow">↖</span> Clique sur la farde pour l'ouvrir</div>
+        </div>
+      </div>
+
+      <div id="opened" class="opened" hidden>
+        <div class="opened-head">
+          <div><div class="eyebrow"><span class="eyebrow-rule"></span> TA FARDE EST OUVERTE</div><h1 id="pageHead">Ma farde de stage</h1><div class="opened-sub" id="stageSubtitle"></div></div>
+          <div class="opened-actions"><span class="save-indicator" id="saveStatus" role="status" aria-live="polite" title="Enregistrement automatique sur cet appareil">○ Vérification du stockage…</span><div class="view-switch" role="group" aria-label="Mode de consultation"><button type="button" id="viewTabs" class="view-option active" aria-pressed="true">▦ Intercalaires</button><button type="button" id="viewBook" class="view-option" aria-pressed="false">▣ Feuilleter</button></div><button type="button" class="button button-soft" data-nav="cover">Page de garde</button><button type="button" class="button button-soft" data-nav="summary">Sommaire</button><button type="button" class="button button-soft" id="closeBinder">↶ Fermer</button><button type="button" class="button button-dark" id="backupBtn">↓ Sauvegarder</button></div>
+        </div>
+        <div class="binder-scene" id="binderScene">
+          <div class="binder" id="binder">
+            <div class="binder-left">
+              <div class="inside-decor"></div>
+              <div class="inside-logo"><span class="logo-small">f.</span><span>MA FARDE<br><b>DE STAGE</b></span></div>
+              <div class="binder-left-body">
+                <p class="inside-kicker">CARNET DE BORD</p>
+                <p class="inside-headline">Un stage,<br><em>neuf intercalaires.</em></p>
+                <p class="inside-description">Tes préparations, tes observations et tes progrès, réunis au même endroit.</p>
+                <div class="inside-note" id="insideInfo"></div>
+                <div class="inside-progress" hidden><div class="progress-caption"><span>MA PRÉPARATION</span><strong id="progressText">0 / 0</strong></div><div class="progress-track"><span id="progressBar"></span></div></div>
+                <div class="inside-bottom"><div class="inside-year">20<br>26</div><span>HAUTE ÉCOLE<br>FRANCISCO FERRER</span></div>
+              </div>
+            </div>
+            <div class="ring-strip" aria-hidden="true"><span class="binder-ring"></span><span class="binder-ring"></span><span class="binder-ring"></span><span class="binder-ring"></span></div>
+            <div class="binder-paper-stack" aria-hidden="true"></div>
+            <div class="paper" id="paper" aria-live="polite">
+              <div class="paper-inner" id="paperInner"></div>
+            </div>
+            <nav class="side-tabs" id="sideTabs" aria-label="Intercalaires de la farde"></nav>
+          </div>
+        </div>
+        <section class="book-scene" id="bookScene" aria-label="Farde en mode livre" hidden>
+          <div class="book-toolbar"><div class="book-title-small"><span class="book-dot"></span> MODE LIVRE · PAGES INTERACTIVES</div><div class="book-page-number" id="bookPageCounter">Page 1</div></div>
+          <div class="book-navigation">
+            <button type="button" id="bookPrev" class="book-turn-btn" aria-label="Tourner la page précédente" title="Page précédente">‹</button>
+            <div class="book-spread" id="bookSpread">
+              <div class="book-page book-page-left" data-book-turn="-1" title="Cliquer pour revenir à la page précédente"><div class="book-page-content" id="bookLeftContent"></div><div class="book-page-footer"><span>ÉCOLE CLAIR-SOLEIL</span><span>MA FARDE · 2026</span></div></div>
+              <div class="book-page book-page-right"><div class="book-page-content" id="bookRightContent"></div><div class="book-page-footer"><span id="bookChapter">Page de garde</span><span>HEFF · AIP3</span></div></div>
+              <div class="book-flip" id="bookFlip" hidden></div>
+            </div>
+            <button type="button" id="bookNext" class="book-turn-btn" aria-label="Tourner la page suivante" title="Page suivante">›</button>
+          </div>
+          <div class="book-hint">Clique sur les flèches, utilise ← → ou glisse pour tourner les pages.</div>
+          <div id="bookQuickTabs" class="book-quick-tabs" aria-label="Accès rapide aux neuf intercalaires"></div>
+        </section>
+        <div class="under-binder"><span>✳ 9 intercalaires · 7 documents classés · les autres rubriques vides.</span><span>Sauvegarde auto sur cet appareil (pas de synchronisation entre téléphones/PC) · <button id="restoreBtn" class="link-button" type="button">Restaurer une sauvegarde</button></span></div>
+      </div>
+    </main>
+    <footer class="footer"><span>CONÇU POUR TON STAGE EN ÉDUCATION PHYSIQUE</span><span>UN OUTIL PERSONNEL · NON AFFILIÉ À LA HEFF</span></footer>
+  </div>
+
+  <dialog id="codeDialog" class="modal" aria-labelledby="codeTitle">
+    <form id="codeForm" class="modal-content" autocomplete="off">
+      <div class="modal-header">
+        <div><div class="eyebrow">AJOUT PROTÉGÉ</div><h2 id="codeTitle">Code requis</h2></div>
+        <button class="modal-x" type="button" data-close="codeDialog" aria-label="Annuler">×</button>
+      </div>
+      <p>Entre ton code personnel pour ajouter des documents ou restaurer une sauvegarde. Tu dois le saisir à chaque opération.</p>
+      <label for="addCode">Code d'ajout</label>
+      <div class="code-input-wrap">
+        <input id="addCode" type="password" placeholder="Saisis ton code" required autocomplete="off" spellcheck="false" aria-describedby="codeFeedback" />
+        <button type="button" id="toggleCode" class="code-peek" aria-label="Afficher le code">Afficher</button>
+      </div>
+      <p id="codeFeedback" class="code-feedback" role="alert" aria-live="polite"></p>
+      <div class="modal-actions">
+        <button class="button button-outline" type="button" data-close="codeDialog">Annuler</button>
+        <button class="button button-primary" type="submit">Vérifier et continuer ↗</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="uploadDialog" class="modal">
+    <form method="dialog" id="uploadForm" class="modal-content">
+      <div class="modal-header"><div><div class="eyebrow">DANS LA BONNE RUBRIQUE</div><h2>Ajouter un document</h2></div><button value="cancel" class="modal-x" type="button" data-close="uploadDialog" aria-label="Fermer">×</button></div>
+      <p>Choisis un document et l’intercalaire où le ranger. Les fichiers sont sauvegardés automatiquement dans ce navigateur. Le code est demandé avant chaque nouvel ajout. Pour les retrouver sur un autre appareil, exporte une sauvegarde JSON puis restaure-la.</p>
+      <label for="uploadSection">Intercalaire</label><select id="uploadSection" required></select>
+      <div id="uploadDayWrap" hidden><label for="uploadDay">Jour de stage</label><select id="uploadDay"></select></div>
+      <label class="drop-zone" id="dropZone" for="uploadFiles"><span class="drop-icon">⇧</span><strong>Glisse tes documents ici</strong><span>ou clique pour choisir un fichier</span><small>PDF, Word, images et autres fichiers · 25 Mo maximum par fichier</small></label>
+      <input type="file" id="uploadFiles" multiple accept=".pdf,.doc,.docx,.odt,.txt,.png,.jpg,.jpeg,.webp,.ppt,.pptx,.xlsx,.xls" hidden />
+      <div id="fileSelection" class="file-selection">Aucun fichier sélectionné</div>
+      <div class="modal-actions"><button type="button" data-close="uploadDialog" class="button button-outline">Annuler</button><button type="submit" class="button button-primary">Ranger dans ma farde ↗</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="settingsDialog" class="modal">
+    <form method="dialog" id="settingsForm" class="modal-content">
+      <div class="modal-header"><div><div class="eyebrow">PERSONNALISATION</div><h2>Les informations du stage</h2></div><button type="button" class="modal-x" data-close="settingsDialog" aria-label="Fermer">×</button></div>
+      <div class="form-grid"><div><label for="metaName">Ton nom</label><input id="metaName" required placeholder="Prénom Nom" /></div><div><label for="metaSchool">École de stage</label><input id="metaSchool" placeholder="Établissement d'accueil" /></div><div><label for="metaMentor">Maître de stage</label><input id="metaMentor" placeholder="Nom du maître de stage" /></div><div><label for="metaClass">Classe / section</label><input id="metaClass" placeholder="Ex : section 3 EP" /></div><div><label for="metaDate">Premier jour</label><input type="date" id="metaDate" /></div><div><label for="metaDuration">Nombre de semaines</label><select id="metaDuration"><option value="1">1 semaine</option><option value="2">2 semaines</option><option value="3">3 semaines</option><option value="4">4 semaines</option></select></div></div>
+      <p class="form-hint">Le nombre de jours et leurs dates sont recalculés automatiquement. Le logo de l’école Clair-Soleil est déjà ajouté. Si tu changes la date, tes documents déjà rangés restent associés au numéro du jour.</p>
+      <div class="modal-actions"><button type="button" class="button button-outline" data-close="settingsDialog">Annuler</button><button type="submit" class="button button-primary">Enregistrer ↗</button></div>
+    </form>
+  </dialog>
+
+  <dialog id="viewerDialog" class="viewer-modal"><div class="viewer-header"><div><span class="eyebrow">DOCUMENT DE LA FARDE</span><strong id="viewerTitle"></strong></div><div><a id="viewerDownload" class="button button-soft" download>↓ Télécharger</a><button class="modal-x" type="button" data-close="viewerDialog" aria-label="Fermer l'aperçu">×</button></div></div><div id="viewerBody" class="viewer-body"></div></dialog>
+
+  <dialog id="searchDialog" class="modal"><div class="modal-content search-content"><div class="modal-header"><div><div class="eyebrow">RECHERCHE RAPIDE</div><h2>Retrouver un document</h2></div><button type="button" class="modal-x" data-close="searchDialog" aria-label="Fermer">×</button></div><input type="search" id="searchInput" placeholder="Ex. planning, évaluation, cours..." autocomplete="off" /><div id="searchResults" class="search-results"></div></div></dialog>
+
+  <dialog id="moveDialog" class="modal"><form method="dialog" id="moveForm" class="modal-content"><div class="modal-header"><div><div class="eyebrow">ORGANISER</div><h2>Déplacer le document</h2></div><button type="button" class="modal-x" data-close="moveDialog" aria-label="Fermer">×</button></div><p id="moveFileName"></p><label for="moveSection">Nouvel intercalaire</label><select id="moveSection"></select><div id="moveDayWrap" hidden><label for="moveDay">Jour</label><select id="moveDay"></select></div><div class="modal-actions"><button type="button" data-close="moveDialog" class="button button-outline">Annuler</button><button type="submit" class="button button-primary">Déplacer ↗</button></div></form></dialog>
+
+  <input type="file" id="restoreFile" accept=".json,application/json" hidden />
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
